@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d1d29">
+  <meta name="description" content="Paper War 纸上谈兵网页试玩：本地双人与人机回合制对战。">
+  <title>Paper War · 纸上谈兵</title><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">PW</span><span>纸上谈兵<small>PAPER WAR</small></span></a><nav><a href="../">原版规则</a><button id="guide-open" class="quiet">技能图鉴</button><button id="restart" class="quiet">重新开始</button></nav></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">掷点 · 运筹 · 交锋</p><h1>一念之间，胜负已分。</h1><p class="subtitle">选好你的天赋与技能，让每一次掷点都有可能。</p></div><div class="edition">网页试玩 <span>v0.1</span><small>本地双人 / 人机对战</small></div></section>
+    <div class="layout">
+      <section class="arena" aria-label="对战区域">
+        <div class="arena-heading"><span id="phase">准备开局</span><span id="turn-count">双方各选 3 个技能</span></div>
+        <div id="players" class="players"></div>
+        <div id="shared" class="shared" hidden></div>
+        <section class="command" aria-labelledby="command-title"><div class="command-heading"><div><p id="step" class="eyebrow">准备</p><h2 id="command-title" tabindex="-1">选择对战模式</h2></div><div id="die" class="die" aria-label="当前点数">?</div></div><div id="controls"></div><p id="message" class="message" role="status"></p></section>
+      </section>
+      <aside class="journal"><div class="journal-heading"><h2>战斗记录</h2><span>每一步，皆有迹可循</span></div><ol id="log" aria-label="战斗记录"></ol><p class="journal-foot">胜负由 0 / 1 濒死判定决定。<br>生命 ≤ 0 时，也可能暂时存活。</p></aside>
+    </div>
+    <footer>纯浏览器运行 · 无需下载 · 对局不保存 <span>规则对照 Python 引擎 1.7，未定规则沿用现行基线。</span></footer>
+    <noscript>请启用 JavaScript 后游玩。你仍可通过页首链接阅读原版规则。</noscript>
+  </main>
+  <dialog id="guide"><div class="dialog-heading"><h2>天赋与技能图鉴</h2><button id="guide-close" class="quiet">关闭</button></div><p>每名玩家选择一个天赋、三个不同技能。基础属性总计 8 点，神为 14 点，天赋加成另计。</p><details><summary>试玩版采用的待定规则</summary><p>R01 改命会被防守掷点消耗；R02 时运与励保留旧批次点数并刷新重行动额度；R03 平反在当前角色回合结束后执行，学潮可绕过锁；R04 引爆合并毒伤减伤且可反制，扩散自虐仍下回合回血；R05–R08 的伤害边界、状态计时、负血和长局继续沿用 Python 基线。以上均为现行行为，等待作者裁决。本版没有自动判和规则。</p></details><h3>十种天赋</h3><div id="talent-guide" class="guide-grid"></div><h3>二十五种技能</h3><div id="skill-guide" class="guide-grid"></div></dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
